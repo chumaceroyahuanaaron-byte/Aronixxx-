@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Ingreso Seguro</title>
+  <style>
+    body {
+      margin: 0;
+      background: linear-gradient(to bottom right, #1a001a, #000000);
+      font-family: 'Segoe UI', sans-serif;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+}
+    #login {
+      background: #ffe6f0;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #ff99cc;
+      text-align: center;
+      color: #cc0066;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+}
+    #passwordDisplay {
+      font-size: 1.5em;
+      margin-bottom: 10px;
+      letter-spacing: 5px;
+}
+.keypad {
+      display: grid;
+      grid-template-columns: repeat(3, 60px);
+      gap: 10px;
+      justify-content: center;
+      margin-bottom: 15px;
+}
+.key {
+      background: #ff99cc;
+      color: white;
+      font-size: 1.5em;
+      border: none;
+      border-radius: 8px;
+      padding: 10px;
+      cursor: pointer;
+      box-shadow: 0 0 5px #cc0066;
+}
+    #enterBtn {
+      background: #cc0066;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 1em;
+      border-radius: 8px;
+      cursor: pointer;
+      box-shadow: 0 0 5px #cc0066;
+}
+    #welcome {
+      display: none;
+      text-align: center;
+      animation: fadeIn 2s ease-in-out forwards;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 1;
+}
+  
+}
+    #welcome p {
+      font-size: 1.8em;
+      margin: 10px 0;
+      color: #ffd1dc;
+      text-shadow: 0 0 10px #ff99cc;
+}
+}
+#welcome {
+  display: none;
+  text-align: center;
+  animation: fadeIn 2s ease-in-out forwards;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  width: 100%;
+}
+}
+#welcome p {
+  font-size: 1.8em;
+  margin: 10px 0;
+  color: #ffd1dc;
+  text-shadow: 0 0 10px #ff99cc;
+  text-align: center;
+}
+}
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.8);}
+      to { opacity: 1; transform: scale(1);}
+}
+  </style>
+</head>
+<body>
+
+  <div id="login">
+    <h2>Ingresa tu contraseña</h2>
+    <div id="passwordDisplay"></div>
+    <div class="keypad">
+      <button class="key">1</button>
+      <button class="key">2</button>
+      <button class="key">3</button>
+      <button class="key">4</button>
+      <button class="key">5</button>
+      <button class="key">6</button>
+      <button class="key">7</button>
+      <button class="key">8</button>
+      <button class="key">9</button>
+      <button class="key">0</button>
+    </div>
+    <button id="enterBtn">Ingresar</button>
+  </div>
+
+  <div id="welcome">
+    <p>💖 Te elijo hoy, mañana y siempre.</p>
+    <p>🌟 Eres mi lugar favorito.</p>
+    <p>🎶 Amarte es lo más bonito que me ha pasado.</p>
+    <p>🌈 Eres mi paz en medio del caos.</p>
+<p>💫 Cada instante contigo es un regalo.</p>
+<p>❤️ Tu amor es mi fuerza diaria.</p>
+<p>🌹 En tus ojos encontré mi destino.</p>
+<p>✨ Juntos somos magia pura.</p>
+}
+}
+<p> TE AMO POR SIEMPRE</p>
+  </div>
+
+  <script>
+    const correctPassword = "2234";
+    let input = "";
+
+    const passwordDisplay = document.getElementById("passwordDisplay");
+    const enterBtn = document.getElementById("enterBtn");
+    const loginBox = document.getElementById("login");
+    const welcomeBox = document.getElementById("welcome");
+
+    document.querySelectorAll(".key").forEach(btn => {
+      btn.addEventListener("click", () => {
+        if (input.length < 10) {
+          input += btn.textContent;
+          passwordDisplay.textContent = input;
+}
+});
+});
+
+    enterBtn.addEventListener("click", () => {
+      if (input === correctPassword) {
+        loginBox.style.display = "none";
+        welcomeBox.style.display = "block";
+} else {
+        alert("Contraseña incorrecta. Intenta de nuevo.");
+        input = "";
+        passwordDisplay.textContent = "";
+}
+});
+  </script>
+
+</body>
+</html>
